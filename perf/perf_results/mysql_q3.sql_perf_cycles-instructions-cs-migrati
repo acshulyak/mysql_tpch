@@ -1,0 +1,12 @@
+# started on Wed Oct  5 09:56:59 2016
+
+
+ Performance counter stats for process id '342':
+
+   716,937,079,807      cycles                   
+ 1,112,538,349,746      instructions              #    1.55  insns per cycle        
+            47,368      cs                                                          
+                66      migrations                                                  
+
+     243.039790190 seconds time elapsed
+

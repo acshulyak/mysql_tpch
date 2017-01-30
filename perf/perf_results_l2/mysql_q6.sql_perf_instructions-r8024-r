@@ -1,0 +1,11 @@
+# started on Tue Jun 28 08:38:33 2016
+
+
+ Performance counter stats for process id '30832':
+
+   215,664,809,502      instructions                                                
+       535,357,247      r8024                                                       
+       604,721,350      rc024                                                       
+
+      23.008703998 seconds time elapsed
+

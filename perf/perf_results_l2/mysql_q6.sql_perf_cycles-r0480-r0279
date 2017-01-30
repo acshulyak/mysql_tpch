@@ -1,0 +1,11 @@
+# started on Tue Jun 28 08:38:56 2016
+
+
+ Performance counter stats for process id '30832':
+
+   120,388,948,046      cycles                                                      
+     1,439,357,877      r0480                                                       
+     9,060,497,965      r0279                                                       
+
+      23.010947940 seconds time elapsed
+

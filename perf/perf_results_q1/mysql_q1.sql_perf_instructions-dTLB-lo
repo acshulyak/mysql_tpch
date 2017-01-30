@@ -1,0 +1,13 @@
+# started on Wed Oct 28 12:05:38 2015
+
+#           time             counts unit events
+     0.176487910      1,066,280,956      instructions              [100.00%]
+     0.176487910            150,421      dTLB-load-misses          [100.00%]
+     0.176487910              3,583      dTLB-store-misses         [100.00%]
+     0.176487910            523,691      iTLB-loads                [100.00%]
+     0.176487910              8,527      iTLB-load-misses         
+     0.176860970          1,783,983      instructions             
+     0.176860970              4,145      dTLB-load-misses         
+     0.176860970                530      dTLB-store-misses        
+     0.176860970              1,400      iTLB-loads               
+     0.176860970              1,037      iTLB-load-misses         

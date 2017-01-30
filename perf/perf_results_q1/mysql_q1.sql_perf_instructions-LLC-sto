@@ -1,0 +1,9 @@
+# started on Wed Oct 28 12:05:39 2015
+
+#           time             counts unit events
+     0.162326859        970,953,978      instructions              [100.00%]
+     0.162326859             43,889      LLC-stores                [100.00%]
+     0.162326859             28,469      LLC-store-misses         
+     0.162685793          1,706,451      instructions             
+     0.162685793              2,923      LLC-stores               
+     0.162685793                500      LLC-store-misses         

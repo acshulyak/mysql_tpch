@@ -1,0 +1,9 @@
+# started on Wed Oct 28 12:05:39 2015
+
+#           time             counts unit events
+     0.254820558      1,569,252,920      instructions              [100.00%]
+     0.254820558            344,396      LLC-prefetches            [100.00%]
+     0.254820558            241,657      LLC-prefetch-misses      
+     0.255423487          2,207,036      instructions             
+     0.255423487              5,449      LLC-prefetches           
+     0.255423487              2,497      LLC-prefetch-misses      

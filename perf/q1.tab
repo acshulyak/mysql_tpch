@@ -1,0 +1,2 @@
+id	select_type	table	type	possible_keys	key	key_len	ref	rows	filtered	Extra
+1	SIMPLE	lineitem	ALL	NULL	NULL	NULL	NULL	60137712	100.00	Using where; Using temporary; Using filesort

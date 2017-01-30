@@ -1,0 +1,11 @@
+# started on Tue Jun 28 18:55:35 2016
+
+
+ Performance counter stats for process id '7057':
+
+   331,449,144,462      instructions                                                
+       240,718,385      r024c                                                       
+        11,160,725      r014c                                                       
+
+      49.610939598 seconds time elapsed
+

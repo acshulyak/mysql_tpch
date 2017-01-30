@@ -1,0 +1,11 @@
+# started on Wed Sep 14 10:01:46 2016
+
+
+ Performance counter stats for process id '1406':
+
+         1,130,735      cycles                   
+           833,384      instructions              #    0.74  insns per cycle        
+                 0      faults                                                      
+
+       0.005538780 seconds time elapsed
+

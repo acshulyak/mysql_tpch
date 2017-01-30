@@ -1,0 +1,11 @@
+# started on Wed Oct 28 12:05:38 2015
+
+#           time             counts unit events
+     0.191603459      1,177,505,280      instructions              [100.00%]
+     0.191603459            218,963      LLC-loads                 [100.00%]
+     0.191603459             73,789      LLC-load-misses           [100.00%]
+     0.191603459        726,428,948      stalled-cycles-frontend  
+     0.192138411          2,048,679      instructions             
+     0.192138411             15,215      LLC-loads                
+     0.192138411              5,055      LLC-load-misses          
+     0.192138411          4,852,629      stalled-cycles-frontend  

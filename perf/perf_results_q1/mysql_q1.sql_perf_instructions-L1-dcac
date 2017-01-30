@@ -1,0 +1,11 @@
+# started on Wed Oct 28 12:05:37 2015
+
+#           time             counts unit events
+     0.680571386      4,470,803,492      instructions              [100.00%]
+     0.680571386          9,422,554      L1-dcache-load-misses     [100.00%]
+     0.680571386          3,093,883      L1-dcache-store-misses    [100.00%]
+     0.680571386          1,591,388      L1-dcache-prefetch-misses
+     0.681180216          2,077,799      instructions             
+     0.681180216             30,218      L1-dcache-load-misses    
+     0.681180216              8,571      L1-dcache-store-misses   
+     0.681180216              4,976      L1-dcache-prefetch-misses
