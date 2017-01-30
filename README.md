@@ -3,14 +3,19 @@ This project provides the tools necessary to collect a variety of performance me
 
 #Setup
 ##Dependencies
-- MySQL: Follow the instruction found at https://dev.mysql.com/doc/refman/5.7/en/linux-installation-native.html for Ubuntu to install MySQL. Essentiall just do the following:
-  ```
-  sudo apt-get install mysql-client mysql-server
-  ```
-  Or for a specific version (we used version 5.5.53):
-  ```
-  sudo apt-get install mysql-client-5.5.53 mysql-server-5.5.53
-  ```
+###MySQL
+Check if you already have MySQL installed and the version:
+```
+mysql --version
+```
+Follow the instruction found at https://dev.mysql.com/doc/refman/5.7/en/linux-installation-native.html for Ubuntu to install MySQL. Essentiall just do the following:
+```
+sudo apt-get install mysql-client mysql-server
+```
+Or for a specific version (we used version 5.5.53):
+```
+sudo apt-get install mysql-client-5.5.53 mysql-server-5.5.53
+```
 
 ##TPC-H Benchmark Suite on MySQL
 1. clone this repo
