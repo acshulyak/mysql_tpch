@@ -26,7 +26,7 @@ cd into the root directory
 
 Prepare MySQL for the tpch database:
 ```
-$ mysql --local-infile=1 -uroot --password=\!ong\-horn
+$ mysql --local-infile=1 -uroot --password=<root-password>
 $ ql -u root -p
 mysql> CREATE USER 'tpch'@'%' IDENTIFIED BY 'password';
 mysql> CREATE DATABASE tpch;
@@ -34,10 +34,11 @@ mysql> GRANT ALL ON tpch.* to 'tpch'@'%';
 mysql> USE tpch;
 mysql> \. tpch/gen/dss.ddl
 ```
-  
+
 Then, in the gen directories, you can modify the query generator to generate queries that are as close as possible to what you need:
 
 ```
+cd dbgen
 cp makefile.suite makefile
 #Modify makefile to use
 # CC = gcc, DATABASE=SQLSERVER, MACHINE=LINUX, WORKLOAD=TPCH
@@ -49,10 +50,10 @@ cp makefile.suite makefile
 make
 ```
 
-Then you can start generating database data at the right scale factor
+Then you can start generating database data at the right scale factor in <#>GB.
 
 ```
-./dbgen -s 1
+./dbgen -s <#>
 ```
 
 And also modify the constraints/indices file so that it's compatible with mysql:
@@ -79,20 +80,49 @@ mysql> alter table NATION rename nation;
 # Ditto for supplier, region, partsupp, part, orders, lineitem, customer
 ```
 
-Finally, you can test some of the queries
+##Perf Scripts Setup
+From the root directory, cd into the perf directory
 
-```
-cp dists.dss queries
-cd queries
-../qgen -c tpch -s 1 1 
-```
-
-I think the queries still need to be modified a bit to be compatible. I think queries with a limit may need the semi-colon moved around, the precision indicator during date arithmetic in query 1 may need to be removed, and the method for naming columns in query 13 might need changing.
+If you still have issues running the queries, please take a look at "mysql_stuff" in the root directory.
 
 #Run
+NOTE: corrected_queries and corrected_queries_query_plan only include queries 1, 3, 6, 14, and 19.
+
+Cd into the perf directory and open the run.sh script. The queries variable includes a list of TPC-H queries that will be executed. Once you edit which queries you want to execute run the tests by executing
+```
+./run.sh ../corrected_queries
+```
+The results of the queries will be placed in q<#>.tab or q<#>..tab files in the perf directory.
 ##Query Plan
+Cd into the perf directory and open the run.sh script. The queries variable includes a list of TPC-H queries that will be executed. Once you edit which queries you want to execute run the tests by executing
+```
+./run.sh ../corrected_queries_query_plan
+```
+The query plans will be placed in q<#>.tab or q<#>..tab files in the perf directory.
 ##IO
+NOTE: I/O collection will give you CPU usage and disk I/O data rates.
+
+Cd into the perf directory.
+
+All perf results files will be placed in the io_results directory. If you desire, you can rename a previous io_results directory to save the previous logs and make a new io_results directory.
+
+Open the run_io.sh script. The queries variable includes a list of TPC-H queries that will be executed. Once you edit which queries you want to execute run the tests by executing
+```
+./run_io.sh ../corrected_queries
+```
 ##Perf
+Cd into the perf directory.
+
+All perf results files will be placed in the perf_results directory. If you desire, you can rename a previous perf_results directory to save the previous logs and make a new perf_results directory.
+
+Open the run.sh script. The queries variable includes a list of TPC-H queries that will be executed. Edit which queries you want to execute.
+
+Open the perf.conf configuration, which includes lists of performance monitoring counters. Select which list to use by renaming it PERF_TESTS. You can also make a custom list of PERF_TESTS. perf.conf also has an INTERVAL variable, which specifies the periodicity of collecting performance data over the course of the test, in milliseconds.
+
+In order to collect the performance counter data on the bulk of MySQL execution, perf must attach to the mysqld process. execute ```pgrep mysqld``` to find the process ID of mysqld. Then execute
+```
+./run_perf.sh ../corrected_queries <PID>
+```
 ##PIN
 
  
