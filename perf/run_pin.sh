@@ -1,7 +1,6 @@
 #!/bin/bash
-source perf.conf
+#source perf.conf
 
-PIN_CMD="/home/ashulyak/pin-3.0-76991-gcc-linux/pin -pid $PINID -follow_execv -t /home/ashulyak/pin-3.0-76991-gcc-linux/source/tools/Mix/obj-intel64/mix-mt.so -i -o /home/ashulyak/mysql_tcph/perf/pin_results_q6/mix.out"
 
 #queries=("q1.sql" "q3.sql" "q6.sql" "q14.sql" "q19.sql")
 queries=("q3.sql")
@@ -21,6 +20,7 @@ I=0
   #echo "PIN_CMD = $PIN_CMD"
   #$PIN_CMD 
   # /home/ashulyak/pin-3.0-76991-gcc-linux/pin -pid $PINID -follow_execv -t /home/ashulyak/pin-3.0-76991-gcc-linux/source/tools/MemTrace/obj-intel64/insbuffer.so -emit -num_intervals 1 -ins_interval 10000000000 -warmup_ins 10000000000 -snippet_size 1000000000 -smarts -o /tmp/${query}.insbuffer.out
+  # This is the PIN_CMD
   /home/ashulyak/pin-3.0-76991-gcc-linux/pin -pid $PINID -follow_execv -t /home/ashulyak/pin-3.0-76991-gcc-linux/source/tools/Mix/obj-intel64/mix-mt.so -i -o /tmp/${query}.mix-mt.out
 
   # pre-running
