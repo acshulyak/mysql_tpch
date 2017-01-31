@@ -131,3 +131,22 @@ Depending on the Pintool of choice, and especially with the trace_gen Pintool, a
 
 1. ^cmd\+C on running ./tpch_benchmark_pin.sh script (until it exits entirely), then
 2. check that mysqld has restarted, and relaunch the mysqld process if it has not
+
+#Results Post-Processing
+##IO
+The run_io.sh script generated a long log file with statio printouts every second. The formate is neither user friendly, nor friendly for post-processing and excel sheets. To convert the file to a .csv, use the io_parse.py script found in the post_processing_scripts directory one leve down from the root directory.
+```
+cd <log-file-dir>
+python <relative-path-to-io_parse.py> <log-file>
+```
+##Perf
+The perf script generates a long log file with performance counter metrics on a one second granularity. The format is user friendly, but not friendly for post-processing and excel sheets. To convert the file to a .csv, use the perf_parse.py script found in the post_processing_scripts directory one level down from the root directory.
+```
+cd <log-file-dir>
+python <relative-path-to-perf_parse.py> <log-file>
+```
+If you generated many log files and want to convert them to .csv files all at once, use the all_parse.py script found inthe post_processing_scripts directory one level down from the root directory as shown below.
+```
+cd <log-file-dir>
+python <relative-path-to-all_parse.py> <relative-path-to-perf_parse.py>
+```
