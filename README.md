@@ -121,5 +121,13 @@ In order to collect the performance counter data on the bulk of MySQL execution,
 ./run_perf.sh ../corrected_queries <PID>
 ```
 ##PIN
+Cd into the perf directory and open the run_pin.sh script. The queries variable includes a list of TPC-H queries that will be executed. Edit which query you want to execute. The PIN_CMD found on line 24 includes the full command line to execute to start PIN binary instrumentation. Edit the absolute paths of the directory to match the location of PIN on your own machine. Because the majority of execution spawns from the already runing mysqld process, the PIN_CMD is a standalone command from launching the Hive query. -pid is used to attach to the mysqld process, and -follow_execv is used so Pin is attached to all child processes. For MySQL binary instrumentation, it is recommended to use thread safe Pintools only. You can use any pintool of your choosing. It is necessary to specify an absolute path for all Pintool log and output files because the default relative path is unknown. If you want to collect and instruction trace that can be used on the Runahead Prefetch simulator, please use the Pintool found at https://github.com/acshulyak/trace_gen.
 
- 
+In order to collect the instruction-level data on the bulk of MySQL execution, pin must attach to the mysqld process. run_pin.sh automatically find the mysqld PID.
+```
+./run_pin.sh ../corrected_queries
+```
+Depending on the Pintool of choice, and especially with the trace_gen Pintool, and large amount of data will be generated. To avoid filling up all available space on disk, monitor disk space periodically during the recording process with ```df```. If at any time you fill the need to end PIN recording short, do the following:
+
+1. ^cmd\+C on running ./tpch_benchmark_pin.sh script (until it exits entirely), then
+2. check that mysqld has restarted, and relaunch the mysqld process if it has not
