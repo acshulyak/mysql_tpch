@@ -80,9 +80,6 @@ mysql> alter table NATION rename nation;
 # Ditto for supplier, region, partsupp, part, orders, lineitem, customer
 ```
 
-##Perf Scripts Setup
-From the root directory, cd into the perf directory
-
 If you still have issues running the queries, please take a look at "mysql_stuff" in the root directory.
 
 #Run
